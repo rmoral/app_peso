@@ -86,6 +86,27 @@ export const ACHIEVEMENTS: Achievement[] = [
     condition: { type: 'weight_entries', count: 30 },
   },
   {
+    id: 'first_food',
+    name: 'Primer Registro',
+    description: 'Registra tu primer alimento',
+    icon: '🍽️',
+    condition: { type: 'food_entries', count: 1 },
+  },
+  {
+    id: 'food_tracker_7',
+    name: 'Dieta Consciente',
+    description: 'Registra 7 alimentos',
+    icon: '🥗',
+    condition: { type: 'food_entries', count: 7 },
+  },
+  {
+    id: 'food_tracker_30',
+    name: 'Nutricionista',
+    description: 'Registra 30 alimentos',
+    icon: '🧑‍🍳',
+    condition: { type: 'food_entries', count: 30 },
+  },
+  {
     id: 'xp_500',
     name: 'Acumulador',
     description: 'Consigue 500 XP en total',

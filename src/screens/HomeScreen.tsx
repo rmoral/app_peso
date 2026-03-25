@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Colors } from '../constants/colors';
 import { useGamification } from '../hooks/useGamification';
 import { useWeightLog } from '../hooks/useWeightLog';
+import { useFoodLog } from '../hooks/useFoodLog';
 import { getDailyQuote } from '../constants/quotes';
 import { xpProgressInLevel } from '../constants/gamification';
 import { getTodayStr } from '../services/gamification';
@@ -15,6 +16,7 @@ import { LevelBadge } from '../components/LevelBadge';
 export function HomeScreen() {
   const { profile, getTodayChallenge, completeDailyChallenge, markActive } = useGamification();
   const { getLatestWeight, getWeightChange, targetWeight } = useWeightLog();
+  const { getTodayCalories, calorieGoal } = useFoodLog();
 
   React.useEffect(() => {
     markActive();
@@ -26,6 +28,7 @@ export function HomeScreen() {
   const xpProgress = xpProgressInLevel(profile.currentXP);
   const latestWeight = getLatestWeight();
   const weightChange = getWeightChange();
+  const todayCalories = getTodayCalories();
 
   const getGreeting = () => {
     const hour = new Date().getHours();
@@ -67,13 +70,9 @@ export function HomeScreen() {
         />
         <View style={{ width: 10 }} />
         <StatBox
-          icon="📉"
-          value={
-            weightChange !== null
-              ? `${weightChange > 0 ? '+' : ''}${weightChange.toFixed(1)}`
-              : '--'
-          }
-          label="Cambio"
+          icon="🍽️"
+          value={`${todayCalories}`}
+          label={`/ ${calorieGoal} kcal`}
         />
       </View>
 

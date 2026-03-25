@@ -5,6 +5,7 @@ export const XP_REWARDS = {
   WORKOUT_ADVANCED: 80,
   DAILY_CHALLENGE: 25,
   STREAK_BONUS: 5,
+  LOG_FOOD: 5,
 };
 
 export const LEVEL_TITLES: Record<number, string> = {

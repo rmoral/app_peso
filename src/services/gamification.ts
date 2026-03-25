@@ -27,6 +27,9 @@ export function checkNewAchievements(state: AppState): string[] {
       case 'level_reached':
         unlocked = state.profile.currentLevel >= cond.level;
         break;
+      case 'food_entries':
+        unlocked = state.foodEntries.length >= cond.count;
+        break;
     }
 
     if (unlocked) {
@@ -53,6 +56,8 @@ export function generateDailyChallenge(dateStr: string): DailyChallenge {
     { title: 'Flexibilidad', description: 'Dedica tiempo a estirar con una rutina suave.', type: 'workout' as const },
     { title: 'Doble sesión', description: 'Completa dos entrenamientos hoy.', type: 'custom' as const },
     { title: 'Peso y ejercicio', description: 'Registra tu peso y completa un entrenamiento.', type: 'custom' as const },
+    { title: 'Control nutricional', description: 'Registra todas las comidas del día.', type: 'custom' as const },
+    { title: 'Come sano', description: 'Registra al menos 3 alimentos saludables hoy.', type: 'custom' as const },
   ];
 
   const template = challengeTemplates[absHash % challengeTemplates.length];

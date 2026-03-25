@@ -8,6 +8,7 @@ import { WeightScreen } from '../screens/WeightScreen';
 import { ExerciseListScreen } from '../screens/ExerciseListScreen';
 import { ExerciseDetailScreen } from '../screens/ExerciseDetailScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
+import { FoodScreen } from '../screens/FoodScreen';
 
 const Tab = createBottomTabNavigator();
 const ExerciseStack = createNativeStackNavigator();
@@ -46,6 +47,7 @@ export function RootNavigator() {
           switch (route.name) {
             case 'Inicio': iconName = focused ? 'home' : 'home-outline'; break;
             case 'Peso': iconName = focused ? 'scale' : 'scale-outline'; break;
+            case 'Comida': iconName = focused ? 'restaurant' : 'restaurant-outline'; break;
             case 'Ejercicio': iconName = focused ? 'barbell' : 'barbell-outline'; break;
             case 'Perfil': iconName = focused ? 'person' : 'person-outline'; break;
           }
@@ -67,6 +69,7 @@ export function RootNavigator() {
     >
       <Tab.Screen name="Inicio" component={HomeScreen} />
       <Tab.Screen name="Peso" component={WeightScreen} />
+      <Tab.Screen name="Comida" component={FoodScreen} />
       <Tab.Screen name="Ejercicio" component={ExerciseStackNavigator} />
       <Tab.Screen name="Perfil" component={ProfileScreen} />
     </Tab.Navigator>

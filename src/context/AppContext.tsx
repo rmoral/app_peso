@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect, useCallback, useRef } from 'react';
-import { AppState, WeightEntry, WorkoutLogEntry, DailyChallenge } from '../types';
+import { AppState, WeightEntry, WorkoutLogEntry, DailyChallenge, FoodEntry } from '../types';
 import { loadState, saveState } from '../services/storage';
 import { calculateLevel } from '../constants/gamification';
 import { getTodayStr } from '../services/gamification';
@@ -17,6 +17,7 @@ const initialState: AppState = {
   },
   weightEntries: [],
   workoutLog: [],
+  foodEntries: [],
   unlockedAchievements: [],
   dailyChallenges: [],
   settings: {
@@ -24,6 +25,7 @@ const initialState: AppState = {
     reminderHour: 9,
     reminderMinute: 0,
     weightUnit: 'kg',
+    dailyCalorieGoal: 2000,
   },
   onboarded: false,
 };
@@ -35,6 +37,8 @@ type Action =
   | { type: 'ADD_WEIGHT_ENTRY'; payload: WeightEntry }
   | { type: 'DELETE_WEIGHT_ENTRY'; payload: string }
   | { type: 'LOG_WORKOUT'; payload: WorkoutLogEntry }
+  | { type: 'ADD_FOOD_ENTRY'; payload: FoodEntry }
+  | { type: 'DELETE_FOOD_ENTRY'; payload: string }
   | { type: 'ADD_XP'; payload: number }
   | { type: 'UNLOCK_ACHIEVEMENTS'; payload: string[] }
   | { type: 'SET_DAILY_CHALLENGE'; payload: DailyChallenge }
@@ -71,6 +75,12 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'LOG_WORKOUT':
       return { ...state, workoutLog: [action.payload, ...state.workoutLog] };
+
+    case 'ADD_FOOD_ENTRY':
+      return { ...state, foodEntries: [action.payload, ...state.foodEntries] };
+
+    case 'DELETE_FOOD_ENTRY':
+      return { ...state, foodEntries: state.foodEntries.filter(e => e.id !== action.payload) };
 
     case 'ADD_XP': {
       const newXP = state.profile.currentXP + action.payload;
