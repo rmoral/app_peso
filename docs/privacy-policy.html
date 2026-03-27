@@ -4,74 +4,387 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PesoFit - Política de Privacidad</title>
+  <meta name="description" content="Política de privacidad de la aplicación PesoFit - Control de peso, ejercicio y nutrición con gamificación.">
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; color: #1E293B; line-height: 1.6; }
-    h1 { color: #0D9488; }
-    h2 { color: #0F766E; margin-top: 2em; }
-    .date { color: #64748B; font-size: 0.9em; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1E293B;
+      line-height: 1.7;
+      background-color: #F0FDF4;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #0D9488, #0F766E);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .header p {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    /* Content */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .last-updated {
+      display: inline-block;
+      background: #E2E8F0;
+      color: #64748B;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      color: #0F766E;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #5EEAD4;
+    }
+
+    p {
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 8px 0 16px 0;
+      padding-left: 20px;
+    }
+    ul li {
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+    ul li strong {
+      color: #0F766E;
+    }
+
+    /* Highlight box */
+    .highlight {
+      background: #FFFFFF;
+      border-left: 4px solid #0D9488;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .highlight p {
+      margin-bottom: 0;
+    }
+
+    /* Warning box */
+    .no-data-box {
+      background: #DCFCE7;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .no-data-box .icon {
+      font-size: 36px;
+      margin-bottom: 8px;
+    }
+    .no-data-box p {
+      font-size: 15px;
+      font-weight: 600;
+      color: #166534;
+      margin-bottom: 4px;
+    }
+    .no-data-box .sub {
+      font-weight: 400;
+      font-size: 13px;
+      color: #15803D;
+    }
+
+    /* Table */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .data-table th {
+      background: #0D9488;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table th:first-child { border-radius: 8px 0 0 0; }
+    .data-table th:last-child { border-radius: 0 8px 0 0; }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      background: #fff;
+    }
+    .data-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+    .data-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+    /* Rights cards */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .right-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .right-card .icon { font-size: 28px; margin-bottom: 6px; }
+    .right-card .title { font-size: 14px; font-weight: 700; color: #0F766E; }
+    .right-card .desc { font-size: 12px; color: #64748B; margin-top: 4px; }
+
+    @media (max-width: 480px) {
+      .rights-grid { grid-template-columns: 1fr; }
+      .header h1 { font-size: 24px; }
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #64748B;
+      border-top: 1px solid #E2E8F0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .footer a {
+      color: #0D9488;
+      text-decoration: none;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-  <h1>Política de Privacidad de PesoFit</h1>
-  <p class="date">Última actualización: 27 de marzo de 2026</p>
 
-  <h2>1. Información General</h2>
-  <p>PesoFit es una aplicación móvil de control de peso, rutinas de ejercicio, seguimiento nutricional y gamificación. Nos tomamos muy en serio la privacidad de nuestros usuarios.</p>
+  <div class="header">
+    <div class="header-logo">💪</div>
+    <h1>PesoFit</h1>
+    <p>Política de Privacidad</p>
+  </div>
 
-  <h2>2. Datos que Recopilamos</h2>
-  <p>PesoFit recopila los siguientes datos que el usuario introduce voluntariamente:</p>
-  <ul>
-    <li><strong>Nombre:</strong> para personalizar la experiencia.</li>
-    <li><strong>Peso corporal:</strong> registros de peso introducidos por el usuario.</li>
-    <li><strong>Peso objetivo:</strong> la meta de peso del usuario.</li>
-    <li><strong>Registros de alimentación:</strong> alimentos y calorías introducidos por el usuario.</li>
-    <li><strong>Actividad de ejercicio:</strong> rutinas completadas y tiempos.</li>
-    <li><strong>Datos de gamificación:</strong> puntos de experiencia, niveles, logros y rachas.</li>
-    <li><strong>Preferencias:</strong> configuración de la aplicación (objetivo calórico, unidad de peso).</li>
-  </ul>
+  <div class="content">
 
-  <h2>3. Almacenamiento de Datos</h2>
-  <p><strong>Todos los datos se almacenan exclusivamente en el dispositivo del usuario</strong> mediante almacenamiento local (AsyncStorage). PesoFit NO:</p>
-  <ul>
-    <li>Envía datos a servidores externos.</li>
-    <li>Comparte datos con terceros.</li>
-    <li>Utiliza servicios de analítica.</li>
-    <li>Recopila datos de ubicación.</li>
-    <li>Accede a contactos, cámara, micrófono u otros datos del dispositivo.</li>
-  </ul>
+    <span class="last-updated">Última actualización: 27 de marzo de 2026</span>
 
-  <h2>4. Datos de Salud</h2>
-  <p>Los datos de peso y alimentación se consideran datos de salud. Estos datos:</p>
-  <ul>
-    <li>Se almacenan únicamente en el dispositivo del usuario.</li>
-    <li>No se transmiten a ningún servidor.</li>
-    <li>Se eliminan completamente al desinstalar la aplicación.</li>
-    <li>El usuario puede eliminar registros individuales en cualquier momento desde la propia app.</li>
-  </ul>
+    <!-- 1 -->
+    <h2>1. Información General</h2>
+    <p>
+      PesoFit es una aplicación móvil de control de peso, rutinas de ejercicio en casa,
+      seguimiento nutricional y gamificación motivacional. Esta política de privacidad
+      describe cómo gestionamos la información de nuestros usuarios.
+    </p>
 
-  <h2>5. Seguridad</h2>
-  <p>Al almacenar todos los datos localmente, la seguridad depende de las medidas de protección del propio dispositivo del usuario (PIN, huella dactilar, reconocimiento facial, etc.).</p>
+    <!-- 2 -->
+    <h2>2. Datos que Recopilamos</h2>
+    <p>PesoFit recoge únicamente los datos que el usuario introduce voluntariamente en la aplicación:</p>
 
-  <h2>6. Derechos del Usuario</h2>
-  <p>El usuario tiene derecho a:</p>
-  <ul>
-    <li><strong>Acceder</strong> a todos sus datos directamente desde la aplicación.</li>
-    <li><strong>Modificar</strong> su nombre y peso objetivo desde el perfil.</li>
-    <li><strong>Eliminar</strong> registros individuales de peso o alimentación.</li>
-    <li><strong>Eliminar todos los datos</strong> desinstalando la aplicación.</li>
-  </ul>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dato</th>
+          <th>Finalidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Nombre</td><td>Personalizar la experiencia del usuario</td></tr>
+        <tr><td>Peso corporal</td><td>Seguimiento de la evolución del peso</td></tr>
+        <tr><td>Peso objetivo</td><td>Calcular progreso hacia la meta</td></tr>
+        <tr><td>Alimentación</td><td>Control de calorías y macronutrientes</td></tr>
+        <tr><td>Ejercicio</td><td>Registro de rutinas completadas</td></tr>
+        <tr><td>Gamificación</td><td>XP, niveles, logros y rachas</td></tr>
+        <tr><td>Preferencias</td><td>Objetivo calórico, unidad de peso</td></tr>
+      </tbody>
+    </table>
 
-  <h2>7. Menores de Edad</h2>
-  <p>PesoFit no está dirigida a menores de 13 años. No recopilamos conscientemente información de menores de 13 años.</p>
+    <!-- 3 -->
+    <h2>3. Almacenamiento de Datos</h2>
 
-  <h2>8. Cambios en esta Política</h2>
-  <p>Nos reservamos el derecho de actualizar esta política de privacidad. Cualquier cambio será reflejado en la fecha de "última actualización" indicada arriba.</p>
+    <div class="no-data-box">
+      <div class="icon">🔒</div>
+      <p>Todos los datos se almacenan SOLO en tu dispositivo</p>
+      <p class="sub">No enviamos ningún dato a servidores externos</p>
+    </div>
 
-  <h2>9. Contacto</h2>
-  <p>Para cualquier pregunta sobre esta política de privacidad, puedes contactarnos en:</p>
-  <p><strong>Email:</strong> [TU_EMAIL_DE_CONTACTO]</p>
+    <p>
+      PesoFit utiliza almacenamiento local del dispositivo (AsyncStorage) para guardar
+      toda la información. Esto significa que tus datos nunca salen de tu teléfono.
+    </p>
 
-  <h2>10. Base Legal (RGPD)</h2>
-  <p>La base legal para el tratamiento de datos es el consentimiento del usuario al introducir voluntariamente sus datos en la aplicación. Al ser un almacenamiento exclusivamente local, no se realiza ningún tratamiento de datos por parte del responsable de la aplicación.</p>
+    <div class="highlight">
+      <p><strong>PesoFit NO realiza ninguna de las siguientes acciones:</strong></p>
+    </div>
+    <ul>
+      <li>Enviar datos a servidores externos o a la nube</li>
+      <li>Compartir información con terceros</li>
+      <li>Utilizar servicios de analítica o rastreo</li>
+      <li>Recopilar datos de ubicación</li>
+      <li>Acceder a contactos, cámara, micrófono u otros sensores</li>
+      <li>Mostrar publicidad ni utilizar identificadores publicitarios</li>
+      <li>Recoger datos de forma automática en segundo plano</li>
+    </ul>
+
+    <!-- 4 -->
+    <h2>4. Datos de Salud</h2>
+    <p>
+      Los datos de peso corporal y alimentación se consideran datos relacionados con la salud.
+      Tratamos esta información con especial cuidado:
+    </p>
+    <ul>
+      <li>Se almacenan <strong>únicamente en el dispositivo</strong> del usuario.</li>
+      <li><strong>No se transmiten</strong> a ningún servidor ni servicio externo.</li>
+      <li>Se <strong>eliminan completamente</strong> al desinstalar la aplicación.</li>
+      <li>El usuario puede <strong>eliminar registros individuales</strong> en cualquier momento desde la app.</li>
+      <li>No se utilizan para elaborar perfiles ni para ningún fin comercial.</li>
+    </ul>
+
+    <!-- 5 -->
+    <h2>5. Seguridad</h2>
+    <p>
+      Al almacenar todos los datos exclusivamente en el dispositivo del usuario, la seguridad
+      de los mismos depende de las medidas de protección del propio dispositivo:
+      PIN, patrón de desbloqueo, huella dactilar, reconocimiento facial, cifrado del dispositivo, etc.
+    </p>
+    <p>
+      Recomendamos mantener el dispositivo actualizado y protegido con un método de
+      bloqueo seguro para garantizar la privacidad de los datos almacenados en PesoFit.
+    </p>
+
+    <!-- 6 -->
+    <h2>6. Derechos del Usuario</h2>
+    <p>El usuario tiene pleno control sobre sus datos en todo momento:</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="icon">👁️</div>
+        <div class="title">Acceso</div>
+        <div class="desc">Consulta todos tus datos directamente desde la app</div>
+      </div>
+      <div class="right-card">
+        <div class="icon">✏️</div>
+        <div class="title">Modificación</div>
+        <div class="desc">Edita tu nombre, peso objetivo y configuración</div>
+      </div>
+      <div class="right-card">
+        <div class="icon">🗑️</div>
+        <div class="title">Eliminación</div>
+        <div class="desc">Borra registros individuales de peso o alimentación</div>
+      </div>
+      <div class="right-card">
+        <div class="icon">📱</div>
+        <div class="title">Supresión total</div>
+        <div class="desc">Desinstala la app para eliminar todos los datos</div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <h2>7. Menores de Edad</h2>
+    <p>
+      PesoFit no está dirigida a menores de 13 años. No recopilamos conscientemente
+      información personal de niños menores de 13 años. Si un padre o tutor descubre
+      que su hijo ha proporcionado datos sin consentimiento, puede eliminarlos
+      desinstalando la aplicación.
+    </p>
+
+    <!-- 8 -->
+    <h2>8. Servicios de Terceros</h2>
+    <p>
+      PesoFit no integra servicios de terceros que recopilen datos del usuario.
+      La aplicación no contiene:
+    </p>
+    <ul>
+      <li>Publicidad de ningún tipo</li>
+      <li>Servicios de analítica (Google Analytics, Firebase, etc.)</li>
+      <li>Redes sociales ni botones de compartir</li>
+      <li>Sistemas de pago dentro de la app (el pago se realiza a través de la tienda de aplicaciones)</li>
+    </ul>
+
+    <!-- 9 -->
+    <h2>9. Cambios en esta Política</h2>
+    <p>
+      Nos reservamos el derecho de actualizar esta política de privacidad en cualquier momento.
+      Cualquier cambio será reflejado en la fecha de "última actualización" indicada al inicio
+      de este documento. Se recomienda revisar esta página periódicamente.
+    </p>
+
+    <!-- 10 -->
+    <h2>10. Base Legal (RGPD / LOPDGDD)</h2>
+    <p>
+      De conformidad con el Reglamento General de Protección de Datos (RGPD) de la UE
+      y la Ley Orgánica de Protección de Datos y Garantía de los Derechos Digitales (LOPDGDD)
+      de España:
+    </p>
+    <ul>
+      <li>
+        <strong>Base legal:</strong> El consentimiento del usuario al introducir voluntariamente
+        sus datos en la aplicación (Art. 6.1.a RGPD).
+      </li>
+      <li>
+        <strong>Tratamiento:</strong> Al ser un almacenamiento exclusivamente local en el dispositivo,
+        no se realiza ningún tratamiento de datos personales por parte del responsable de la aplicación.
+      </li>
+      <li>
+        <strong>Transferencias internacionales:</strong> No se realizan transferencias de datos
+        a ningún país, ya que los datos no salen del dispositivo.
+      </li>
+    </ul>
+
+    <!-- 11 -->
+    <h2>11. Contacto</h2>
+    <p>
+      Para cualquier pregunta, sugerencia o reclamación relacionada con esta política
+      de privacidad o con el tratamiento de tus datos, puedes contactarnos en:
+    </p>
+    <div class="highlight">
+      <p><strong>Email:</strong> pesofit.app@gmail.com</p>
+    </div>
+    <p>
+      También puedes ejercer tus derechos de acceso, rectificación, supresión,
+      oposición y portabilidad enviando un correo a la dirección indicada.
+    </p>
+
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 PesoFit. Todos los derechos reservados.</p>
+    <p style="margin-top: 4px;">
+      <a href="https://github.com/rmoral/app_peso">GitHub</a>
+    </p>
+  </div>
+
 </body>
 </html>
