@@ -4,6 +4,7 @@ import { Colors } from '../constants/colors';
 import { EXERCISE_ROUTINES } from '../constants/exercises';
 import { Card } from '../components/ui/Card';
 import { Difficulty } from '../types';
+import { AdBanner } from '../components/AdBanner';
 
 const DIFFICULTY_LABELS: Record<Difficulty, string> = {
   beginner: 'Principiante',
@@ -64,6 +65,8 @@ export function ExerciseListScreen({ navigation }: any) {
           </Card>
         </TouchableOpacity>
       ))}
+
+      <AdBanner position="inline" />
     </ScrollView>
   );
 }

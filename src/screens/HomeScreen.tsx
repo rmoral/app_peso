@@ -12,11 +12,15 @@ import { ProgressBar } from '../components/ui/ProgressBar';
 import { QuoteCard } from '../components/QuoteCard';
 import { DailyChallengeCard } from '../components/DailyChallengeCard';
 import { LevelBadge } from '../components/LevelBadge';
+import { AdBanner } from '../components/AdBanner';
+import { RemoveAdsCard } from '../components/RemoveAdsCard';
+import { usePurchase } from '../hooks/usePurchase';
 
 export function HomeScreen() {
   const { profile, getTodayChallenge, completeDailyChallenge, markActive } = useGamification();
   const { getLatestWeight, getWeightChange, targetWeight } = useWeightLog();
   const { getTodayCalories, calorieGoal } = useFoodLog();
+  const { purchaseRemoveAds } = usePurchase();
 
   React.useEffect(() => {
     markActive();
@@ -84,7 +88,13 @@ export function HomeScreen() {
         </View>
       )}
 
+      <AdBanner position="inline" />
+
       <DailyChallengeCard challenge={challenge} onComplete={completeDailyChallenge} />
+
+      <AdBanner position="inline" />
+
+      <RemoveAdsCard onPress={purchaseRemoveAds} />
     </ScrollView>
   );
 }

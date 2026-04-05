@@ -11,10 +11,16 @@ import { Badge } from '../components/ui/Badge';
 import { Card } from '../components/ui/Card';
 import { StatBox } from '../components/ui/StatBox';
 import { Button } from '../components/ui/Button';
+import { AdBanner } from '../components/AdBanner';
+import { RemoveAdsCard } from '../components/RemoveAdsCard';
+import { usePurchase } from '../hooks/usePurchase';
+import { useAds } from '../context/AdsContext';
 
 export function ProfileScreen() {
   const { state, dispatch } = useAppState();
   const { profile, unlockedAchievements } = useGamification();
+  const { purchaseRemoveAds, restorePurchases } = usePurchase();
+  const { showAds } = useAds();
   const xpProgress = xpProgressInLevel(profile.currentXP);
   const [editingName, setEditingName] = React.useState(false);
   const [nameInput, setNameInput] = React.useState(profile.name);
@@ -103,6 +109,10 @@ export function ProfileScreen() {
         ))}
       </View>
 
+      <AdBanner position="inline" />
+
+      <RemoveAdsCard onPress={purchaseRemoveAds} />
+
       <Text style={styles.sectionTitle}>Ajustes</Text>
       <Card>
         <View style={styles.settingRow}>
@@ -126,6 +136,15 @@ export function ProfileScreen() {
           )}
         </View>
       </Card>
+
+      {showAds && (
+        <Card>
+          <View style={styles.settingRow}>
+            <Text style={styles.settingLabel}>Restaurar compras</Text>
+            <Button title="Restaurar" onPress={restorePurchases} small variant="outline" />
+          </View>
+        </Card>
+      )}
     </ScrollView>
   );
 }

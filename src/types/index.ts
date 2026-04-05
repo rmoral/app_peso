@@ -107,4 +107,5 @@ export interface AppState {
   dailyChallenges: DailyChallenge[];
   settings: AppSettings;
   onboarded: boolean;
+  adsRemoved: boolean;
 }

@@ -28,6 +28,7 @@ const initialState: AppState = {
     dailyCalorieGoal: 2000,
   },
   onboarded: false,
+  adsRemoved: false,
 };
 
 type Action =
@@ -44,7 +45,8 @@ type Action =
   | { type: 'SET_DAILY_CHALLENGE'; payload: DailyChallenge }
   | { type: 'COMPLETE_DAILY_CHALLENGE'; payload: string }
   | { type: 'UPDATE_STREAK'; payload: { streak: number; date: string } }
-  | { type: 'UPDATE_SETTINGS'; payload: Partial<AppState['settings']> };
+  | { type: 'UPDATE_SETTINGS'; payload: Partial<AppState['settings']> }
+  | { type: 'REMOVE_ADS' };
 
 function reducer(state: AppState, action: Action): AppState {
   switch (action.type) {
@@ -126,6 +128,9 @@ function reducer(state: AppState, action: Action): AppState {
 
     case 'UPDATE_SETTINGS':
       return { ...state, settings: { ...state.settings, ...action.payload } };
+
+    case 'REMOVE_ADS':
+      return { ...state, adsRemoved: true };
 
     default:
       return state;

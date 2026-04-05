@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native';
 import { Colors } from '../constants/colors';
 import { EXERCISE_ROUTINES } from '../constants/exercises';
@@ -9,11 +9,16 @@ import { ExerciseTimerDisplay } from '../components/ExerciseTimer';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { getTodayStr } from '../services/gamification';
+import { AdBanner } from '../components/AdBanner';
+import { InterstitialAdTrigger } from '../components/InterstitialAdTrigger';
+import { useAds } from '../context/AdsContext';
 
 export function ExerciseDetailScreen({ route, navigation }: any) {
   const routine = EXERCISE_ROUTINES.find((r: any) => r.id === route.params.routineId);
   const { dispatch } = useAppState();
   const { addWorkoutXP, checkAchievements, markActive } = useGamification();
+  const [showInterstitial, setShowInterstitial] = useState(false);
+  const { trackAction } = useAds();
 
   if (!routine) {
     return (
@@ -48,6 +53,8 @@ export function ExerciseDetailScreen({ route, navigation }: any) {
         );
       }
     }, 100);
+
+    if (trackAction()) setShowInterstitial(true);
 
     Alert.alert(
       '🎉 ¡Rutina completada!',
@@ -102,6 +109,8 @@ export function ExerciseDetailScreen({ route, navigation }: any) {
       </View>
 
       <Text style={styles.exercisesTitle}>Ejercicios de la rutina</Text>
+      <AdBanner position="inline" />
+
       {routine.exercises.map((ex, i) => (
         <View
           key={ex.id}
@@ -121,6 +130,10 @@ export function ExerciseDetailScreen({ route, navigation }: any) {
           </View>
         </View>
       ))}
+      <InterstitialAdTrigger
+        visible={showInterstitial}
+        onClose={() => setShowInterstitial(false)}
+      />
     </ScrollView>
   );
 }

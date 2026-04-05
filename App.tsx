@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ActivityIndicator, View } from 'react-native';
 import { AppProvider, useAppState } from './src/context/AppContext';
+import { AdsProvider } from './src/context/AdsContext';
 import { RootNavigator } from './src/navigation/RootNavigator';
 import { OnboardingScreen } from './src/screens/OnboardingScreen';
 import { Colors } from './src/constants/colors';
@@ -34,8 +35,10 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <AppProvider>
-        <StatusBar style="dark" />
-        <AppContent />
+        <AdsProvider>
+          <StatusBar style="dark" />
+          <AppContent />
+        </AdsProvider>
       </AppProvider>
     </SafeAreaProvider>
   );

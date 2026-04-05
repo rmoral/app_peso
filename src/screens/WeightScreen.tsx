@@ -5,10 +5,15 @@ import { useWeightLog } from '../hooks/useWeightLog';
 import { WeightChart } from '../components/WeightChart';
 import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
+import { AdBanner } from '../components/AdBanner';
+import { InterstitialAdTrigger } from '../components/InterstitialAdTrigger';
+import { useAds } from '../context/AdsContext';
 
 export function WeightScreen() {
   const { entries, addEntry, deleteEntry, getChartData, targetWeight } = useWeightLog();
   const [weightInput, setWeightInput] = useState('');
+  const [showInterstitial, setShowInterstitial] = useState(false);
+  const { trackAction } = useAds();
   const chartData = getChartData(30);
 
   const handleAdd = () => {
@@ -18,6 +23,7 @@ export function WeightScreen() {
       return;
     }
     addEntry(weight);
+    if (trackAction()) setShowInterstitial(true);
     setWeightInput('');
   };
 
@@ -79,6 +85,13 @@ export function WeightScreen() {
           </TouchableOpacity>
         ))
       )}
+
+      <AdBanner position="inline" />
+
+      <InterstitialAdTrigger
+        visible={showInterstitial}
+        onClose={() => setShowInterstitial(false)}
+      />
     </ScrollView>
   );
 }

@@ -10,6 +10,9 @@ import { Card } from '../components/ui/Card';
 import { Button } from '../components/ui/Button';
 import { ProgressBar } from '../components/ui/ProgressBar';
 import { FoodItem, MealType } from '../types';
+import { AdBanner } from '../components/AdBanner';
+import { InterstitialAdTrigger } from '../components/InterstitialAdTrigger';
+import { useAds } from '../context/AdsContext';
 
 const MEAL_ORDER: MealType[] = ['breakfast', 'lunch', 'dinner', 'snack'];
 
@@ -18,6 +21,8 @@ export function FoodScreen() {
     addEntry, deleteEntry, getTodayCalories, getTodayMacros,
     getTodayByMeal, getMealCalories, calorieGoal,
   } = useFoodLog();
+  const { trackAction } = useAds();
+  const [showInterstitial, setShowInterstitial] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
   const [selectedMeal, setSelectedMeal] = useState<MealType>('lunch');
@@ -57,6 +62,7 @@ export function FoodScreen() {
     const qty = parseFloat(quantity) || 1;
     addEntry(selectedFood, selectedMeal, qty);
     setShowModal(false);
+    if (trackAction()) setShowInterstitial(true);
   };
 
   const handleAddCustomFood = () => {
@@ -77,6 +83,7 @@ export function FoodScreen() {
     const qty = parseFloat(quantity) || 1;
     addEntry(customFood, selectedMeal, qty);
     setShowModal(false);
+    if (trackAction()) setShowInterstitial(true);
     setCustomName('');
     setCustomCalories('');
     setCustomProtein('');
@@ -166,6 +173,13 @@ export function FoodScreen() {
       })}
 
       <Text style={styles.xpHint}>+5 XP por cada alimento registrado</Text>
+
+      <AdBanner position="inline" />
+
+      <InterstitialAdTrigger
+        visible={showInterstitial}
+        onClose={() => setShowInterstitial(false)}
+      />
 
       {/* Add Food Modal */}
       <Modal visible={showModal} animationType="slide" presentationStyle="pageSheet">
