@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PesoFit - Privacy Policy / Política de Privacidad</title>
+  <meta name="description" content="Privacy Policy for PesoFit app - Weight control, exercise and nutrition with gamification. / Política de privacidad de PesoFit.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: #1E293B;
+      line-height: 1.7;
+      background-color: #F0FDF4;
+    }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #0D9488, #0F766E);
+      color: #fff;
+      padding: 40px 20px 30px;
+      text-align: center;
+    }
+    .header-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 16px;
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+    .header h1 {
+      font-size: 28px;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+    .header .subtitle {
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    /* Language switcher */
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-top: 16px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      border: 2px solid rgba(255,255,255,0.3);
+      padding: 8px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:first-child { border-radius: 8px 0 0 8px; }
+    .lang-btn:last-child { border-radius: 0 8px 8px 0; }
+    .lang-btn.active {
+      background: #fff;
+      color: #0F766E;
+      border-color: #fff;
+    }
+    .lang-btn:not(.active):hover {
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* Content */
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .lang-es, .lang-en { display: none; }
+    body.show-es .lang-es { display: block; }
+    body.show-en .lang-en { display: block; }
+    body.show-es .lang-es.inline { display: inline; }
+    body.show-en .lang-en.inline { display: inline; }
+    body.show-es .lang-es.inline-block { display: inline-block; }
+    body.show-en .lang-en.inline-block { display: inline-block; }
+
+    .last-updated {
+      display: inline-block;
+      background: #E2E8F0;
+      color: #64748B;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      color: #0F766E;
+      font-size: 20px;
+      font-weight: 700;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #5EEAD4;
+    }
+
+    p { margin-bottom: 12px; font-size: 15px; }
+
+    ul { margin: 8px 0 16px 0; padding-left: 20px; }
+    ul li { margin-bottom: 6px; font-size: 15px; }
+    ul li strong { color: #0F766E; }
+
+    .highlight {
+      background: #FFFFFF;
+      border-left: 4px solid #0D9488;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .highlight p { margin-bottom: 0; }
+
+    .no-data-box {
+      background: #DCFCE7;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .no-data-box .icon { font-size: 36px; margin-bottom: 8px; }
+    .no-data-box p { font-size: 15px; font-weight: 600; color: #166534; margin-bottom: 4px; }
+    .no-data-box .sub { font-weight: 400; font-size: 13px; color: #15803D; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+    .data-table th {
+      background: #0D9488;
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+    }
+    .data-table th:first-child { border-radius: 8px 0 0 0; }
+    .data-table th:last-child { border-radius: 0 8px 0 0; }
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      background: #fff;
+    }
+    .data-table tr:last-child td:first-child { border-radius: 0 0 0 8px; }
+    .data-table tr:last-child td:last-child { border-radius: 0 0 8px 0; }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 16px 0;
+    }
+    .right-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      text-align: center;
+    }
+    .right-card .icon { font-size: 28px; margin-bottom: 6px; }
+    .right-card .title { font-size: 14px; font-weight: 700; color: #0F766E; }
+    .right-card .desc { font-size: 12px; color: #64748B; margin-top: 4px; }
+
+    /* Legal jurisdiction badge */
+    .jurisdiction-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .jur-badge {
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #0F766E;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .jur-badge .flag { font-size: 18px; }
+
+    @media (max-width: 480px) {
+      .rights-grid { grid-template-columns: 1fr; }
+      .header h1 { font-size: 24px; }
+    }
+
+    .footer {
+      text-align: center;
+      padding: 24px 20px;
+      font-size: 13px;
+      color: #64748B;
+      border-top: 1px solid #E2E8F0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .footer a { color: #0D9488; text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body class="show-es">
+
+  <div class="header">
+    <div class="header-logo">💪</div>
+    <h1>PesoFit</h1>
+    <p class="subtitle lang-es">Política de Privacidad</p>
+    <p class="subtitle lang-en">Privacy Policy</p>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btn-es" onclick="switchLang('es')">🇪🇸 Español</button>
+      <button class="lang-btn" id="btn-en" onclick="switchLang('en')">🇺🇸 English</button>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ==================== ESPAÑOL ==================== -->
+    <div class="lang-es">
+
+      <span class="last-updated">Última actualización: 27 de marzo de 2026</span>
+
+      <h2>1. Información General</h2>
+      <p>
+        PesoFit es una aplicación móvil de control de peso, rutinas de ejercicio en casa,
+        seguimiento nutricional y gamificación motivacional. Esta política de privacidad
+        describe cómo gestionamos la información de nuestros usuarios.
+      </p>
+
+      <h2>2. Datos que Recopilamos</h2>
+      <p>PesoFit recoge únicamente los datos que el usuario introduce voluntariamente en la aplicación:</p>
+      <table class="data-table">
+        <thead><tr><th>Dato</th><th>Finalidad</th></tr></thead>
+        <tbody>
+          <tr><td>Nombre</td><td>Personalizar la experiencia del usuario</td></tr>
+          <tr><td>Peso corporal</td><td>Seguimiento de la evolución del peso</td></tr>
+          <tr><td>Peso objetivo</td><td>Calcular progreso hacia la meta</td></tr>
+          <tr><td>Alimentación</td><td>Control de calorías y macronutrientes</td></tr>
+          <tr><td>Ejercicio</td><td>Registro de rutinas completadas</td></tr>
+          <tr><td>Gamificación</td><td>XP, niveles, logros y rachas</td></tr>
+          <tr><td>Preferencias</td><td>Objetivo calórico, unidad de peso</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Almacenamiento de Datos</h2>
+      <div class="no-data-box">
+        <div class="icon">🔒</div>
+        <p>Todos los datos se almacenan SOLO en tu dispositivo</p>
+        <p class="sub">No enviamos ningún dato a servidores externos</p>
+      </div>
+      <p>
+        PesoFit utiliza almacenamiento local del dispositivo para guardar
+        toda la información. Tus datos nunca salen de tu teléfono.
+      </p>
+      <div class="highlight">
+        <p><strong>PesoFit NO realiza ninguna de las siguientes acciones:</strong></p>
+      </div>
+      <ul>
+        <li>Enviar datos a servidores externos o a la nube</li>
+        <li>Compartir información con terceros</li>
+        <li>Utilizar servicios de analítica o rastreo</li>
+        <li>Recopilar datos de ubicación</li>
+        <li>Acceder a contactos, cámara, micrófono u otros sensores</li>
+        <li>Mostrar publicidad ni utilizar identificadores publicitarios</li>
+        <li>Recoger datos de forma automática en segundo plano</li>
+      </ul>
+
+      <h2>4. Datos de Salud</h2>
+      <p>Los datos de peso corporal y alimentación se consideran datos relacionados con la salud. Tratamos esta información con especial cuidado:</p>
+      <ul>
+        <li>Se almacenan <strong>únicamente en el dispositivo</strong> del usuario.</li>
+        <li><strong>No se transmiten</strong> a ningún servidor ni servicio externo.</li>
+        <li>Se <strong>eliminan completamente</strong> al desinstalar la aplicación.</li>
+        <li>El usuario puede <strong>eliminar registros individuales</strong> en cualquier momento.</li>
+        <li>No se utilizan para elaborar perfiles ni para ningún fin comercial.</li>
+      </ul>
+
+      <h2>5. Seguridad</h2>
+      <p>
+        Al almacenar todos los datos exclusivamente en el dispositivo del usuario, la seguridad depende de
+        las medidas de protección del propio dispositivo: PIN, huella dactilar, reconocimiento facial, cifrado, etc.
+      </p>
+      <p>Recomendamos mantener el dispositivo actualizado y protegido con un método de bloqueo seguro.</p>
+
+      <h2>6. Derechos del Usuario</h2>
+      <p>El usuario tiene pleno control sobre sus datos en todo momento:</p>
+      <div class="rights-grid">
+        <div class="right-card"><div class="icon">👁️</div><div class="title">Acceso</div><div class="desc">Consulta todos tus datos directamente desde la app</div></div>
+        <div class="right-card"><div class="icon">✏️</div><div class="title">Modificación</div><div class="desc">Edita tu nombre, peso objetivo y configuración</div></div>
+        <div class="right-card"><div class="icon">🗑️</div><div class="title">Eliminación</div><div class="desc">Borra registros individuales de peso o alimentación</div></div>
+        <div class="right-card"><div class="icon">📱</div><div class="title">Supresión total</div><div class="desc">Desinstala la app para eliminar todos los datos</div></div>
+      </div>
+
+      <h2>7. Menores de Edad</h2>
+      <p>
+        PesoFit no está dirigida a menores de 13 años. No recopilamos conscientemente
+        información personal de niños menores de 13 años. Si un padre o tutor descubre
+        que su hijo ha proporcionado datos sin consentimiento, puede eliminarlos
+        desinstalando la aplicación.
+      </p>
+
+      <h2>8. Servicios de Terceros</h2>
+      <p>PesoFit no integra servicios de terceros que recopilen datos del usuario. La aplicación no contiene:</p>
+      <ul>
+        <li>Publicidad de ningún tipo</li>
+        <li>Servicios de analítica (Google Analytics, Firebase, etc.)</li>
+        <li>Redes sociales ni botones de compartir</li>
+        <li>Sistemas de pago dentro de la app (el pago se realiza a través de la tienda de aplicaciones)</li>
+      </ul>
+
+      <h2>9. Cambios en esta Política</h2>
+      <p>
+        Nos reservamos el derecho de actualizar esta política de privacidad en cualquier momento.
+        Cualquier cambio será reflejado en la fecha de "última actualización" indicada al inicio de este documento.
+      </p>
+
+      <h2>10. Legislación Aplicable</h2>
+      <div class="jurisdiction-badges">
+        <div class="jur-badge"><span class="flag">🇪🇺</span> RGPD (UE)</div>
+        <div class="jur-badge"><span class="flag">🇪🇸</span> LOPDGDD (España)</div>
+        <div class="jur-badge"><span class="flag">🇺🇸</span> CCPA/CPRA (California)</div>
+        <div class="jur-badge"><span class="flag">🇺🇸</span> COPPA (EE.UU.)</div>
+      </div>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">Unión Europea — RGPD / LOPDGDD</h3>
+      <ul>
+        <li><strong>Base legal:</strong> Consentimiento del usuario al introducir voluntariamente sus datos (Art. 6.1.a RGPD).</li>
+        <li><strong>Tratamiento:</strong> Al ser almacenamiento exclusivamente local, no se realiza tratamiento de datos por parte del responsable.</li>
+        <li><strong>Transferencias internacionales:</strong> No se realizan, ya que los datos no salen del dispositivo.</li>
+        <li><strong>Derechos:</strong> Acceso, rectificación, supresión, oposición y portabilidad (Arts. 15-20 RGPD).</li>
+      </ul>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">Estados Unidos — CCPA/CPRA (California)</h3>
+      <ul>
+        <li>PesoFit <strong>no vende ni comparte</strong> información personal de sus usuarios.</li>
+        <li>PesoFit <strong>no recopila</strong> información personal tal como la define la CCPA, ya que todos los datos permanecen en el dispositivo.</li>
+        <li>Los residentes de California tienen derecho a conocer, eliminar y optar por no vender su información personal. Dado que no recopilamos ni almacenamos datos en nuestros servidores, estos derechos se ejercen directamente a través de la app.</li>
+      </ul>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">Estados Unidos — COPPA (Menores)</h3>
+      <ul>
+        <li>PesoFit cumple con la Ley de Protección de la Privacidad Infantil en Internet (COPPA).</li>
+        <li>No recopilamos conscientemente información de menores de 13 años.</li>
+        <li>No se requiere creación de cuenta ni se recogen identificadores persistentes.</li>
+      </ul>
+
+      <h2>11. Contacto</h2>
+      <p>Para cualquier pregunta relacionada con esta política de privacidad:</p>
+      <div class="highlight">
+        <p><strong>Email:</strong> pesofit.app@gmail.com</p>
+      </div>
+      <p>
+        También puedes ejercer tus derechos de acceso, rectificación, supresión,
+        oposición y portabilidad enviando un correo a la dirección indicada.
+      </p>
+
+    </div>
+
+    <!-- ==================== ENGLISH ==================== -->
+    <div class="lang-en">
+
+      <span class="last-updated">Last updated: March 27, 2026</span>
+
+      <h2>1. General Information</h2>
+      <p>
+        PesoFit is a mobile application for weight management, home exercise routines,
+        nutritional tracking, and motivational gamification. This privacy policy describes
+        how we handle our users' information.
+      </p>
+
+      <h2>2. Data We Collect</h2>
+      <p>PesoFit only collects data that the user voluntarily enters into the application:</p>
+      <table class="data-table">
+        <thead><tr><th>Data</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Name</td><td>Personalize the user experience</td></tr>
+          <tr><td>Body weight</td><td>Track weight progress over time</td></tr>
+          <tr><td>Target weight</td><td>Calculate progress toward goal</td></tr>
+          <tr><td>Food intake</td><td>Calorie and macronutrient tracking</td></tr>
+          <tr><td>Exercise</td><td>Record completed workout routines</td></tr>
+          <tr><td>Gamification</td><td>XP, levels, achievements, and streaks</td></tr>
+          <tr><td>Preferences</td><td>Calorie goal, weight unit settings</td></tr>
+        </tbody>
+      </table>
+
+      <h2>3. Data Storage</h2>
+      <div class="no-data-box">
+        <div class="icon">🔒</div>
+        <p>All data is stored ONLY on your device</p>
+        <p class="sub">We do not send any data to external servers</p>
+      </div>
+      <p>
+        PesoFit uses your device's local storage to save all information.
+        Your data never leaves your phone.
+      </p>
+      <div class="highlight">
+        <p><strong>PesoFit does NOT do any of the following:</strong></p>
+      </div>
+      <ul>
+        <li>Send data to external servers or the cloud</li>
+        <li>Share information with third parties</li>
+        <li>Use analytics or tracking services</li>
+        <li>Collect location data</li>
+        <li>Access contacts, camera, microphone, or other sensors</li>
+        <li>Display advertising or use advertising identifiers</li>
+        <li>Collect data automatically in the background</li>
+      </ul>
+
+      <h2>4. Health Data</h2>
+      <p>Body weight and food intake data are considered health-related information. We treat this data with special care:</p>
+      <ul>
+        <li>Stored <strong>exclusively on the user's device</strong>.</li>
+        <li><strong>Not transmitted</strong> to any server or external service.</li>
+        <li><strong>Completely deleted</strong> when the application is uninstalled.</li>
+        <li>Users can <strong>delete individual records</strong> at any time from within the app.</li>
+        <li>Not used for profiling or any commercial purpose.</li>
+      </ul>
+
+      <h2>5. Security</h2>
+      <p>
+        Since all data is stored exclusively on the user's device, data security depends on
+        the device's own protection measures: PIN, fingerprint, facial recognition, device encryption, etc.
+      </p>
+      <p>We recommend keeping your device updated and protected with a secure lock method.</p>
+
+      <h2>6. Your Rights</h2>
+      <p>You have full control over your data at all times:</p>
+      <div class="rights-grid">
+        <div class="right-card"><div class="icon">👁️</div><div class="title">Access</div><div class="desc">View all your data directly within the app</div></div>
+        <div class="right-card"><div class="icon">✏️</div><div class="title">Modify</div><div class="desc">Edit your name, target weight, and settings</div></div>
+        <div class="right-card"><div class="icon">🗑️</div><div class="title">Delete</div><div class="desc">Remove individual weight or food records</div></div>
+        <div class="right-card"><div class="icon">📱</div><div class="title">Full Erasure</div><div class="desc">Uninstall the app to delete all data</div></div>
+      </div>
+
+      <h2>7. Children's Privacy</h2>
+      <p>
+        PesoFit is not intended for children under 13 years of age. We do not knowingly collect
+        personal information from children under 13. If a parent or guardian discovers that their
+        child has provided data without consent, they can delete it by uninstalling the application.
+      </p>
+
+      <h2>8. Third-Party Services</h2>
+      <p>PesoFit does not integrate any third-party services that collect user data. The application contains:</p>
+      <ul>
+        <li>No advertising of any kind</li>
+        <li>No analytics services (Google Analytics, Firebase, etc.)</li>
+        <li>No social media integrations or sharing buttons</li>
+        <li>No in-app payment systems (payment is handled by the app store)</li>
+      </ul>
+
+      <h2>9. Changes to This Policy</h2>
+      <p>
+        We reserve the right to update this privacy policy at any time.
+        Any changes will be reflected in the "last updated" date at the top of this document.
+      </p>
+
+      <h2>10. Applicable Laws</h2>
+      <div class="jurisdiction-badges">
+        <div class="jur-badge"><span class="flag">🇪🇺</span> GDPR (EU)</div>
+        <div class="jur-badge"><span class="flag">🇪🇸</span> LOPDGDD (Spain)</div>
+        <div class="jur-badge"><span class="flag">🇺🇸</span> CCPA/CPRA (California)</div>
+        <div class="jur-badge"><span class="flag">🇺🇸</span> COPPA (U.S.)</div>
+      </div>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">European Union — GDPR / LOPDGDD</h3>
+      <ul>
+        <li><strong>Legal basis:</strong> User consent by voluntarily entering their data (Art. 6.1.a GDPR).</li>
+        <li><strong>Processing:</strong> As data is stored exclusively on-device, no personal data processing is performed by the app developer.</li>
+        <li><strong>International transfers:</strong> None, as data never leaves the device.</li>
+        <li><strong>Rights:</strong> Access, rectification, erasure, objection, and portability (Arts. 15-20 GDPR).</li>
+      </ul>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">United States — CCPA/CPRA (California)</h3>
+      <ul>
+        <li>PesoFit <strong>does not sell or share</strong> personal information of its users.</li>
+        <li>PesoFit <strong>does not collect</strong> personal information as defined by the CCPA, as all data remains on your device.</li>
+        <li>California residents have the right to know, delete, and opt out of the sale of their personal information. Since we do not collect or store data on our servers, these rights are exercised directly through the app.</li>
+        <li>PesoFit does not use personal information for cross-context behavioral advertising.</li>
+        <li>We do not use or disclose sensitive personal information for purposes beyond those authorized by the CPRA.</li>
+      </ul>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">United States — COPPA (Children)</h3>
+      <ul>
+        <li>PesoFit complies with the Children's Online Privacy Protection Act (COPPA).</li>
+        <li>We do not knowingly collect information from children under 13.</li>
+        <li>No account creation is required, and no persistent identifiers are collected.</li>
+        <li>If you believe a child under 13 has used the app, uninstalling it will remove all data.</li>
+      </ul>
+
+      <h3 style="color:#0F766E; margin-top:20px; font-size:17px;">United States — State Privacy Laws</h3>
+      <p>
+        PesoFit's architecture of local-only data storage means we comply with state privacy laws including
+        the Virginia Consumer Data Protection Act (VCDPA), Colorado Privacy Act (CPA), Connecticut Data Privacy Act (CTDPA),
+        and similar state regulations, as we do not collect, process, or share personal data on any server.
+      </p>
+
+      <h2>11. Contact Us</h2>
+      <p>For any questions regarding this privacy policy:</p>
+      <div class="highlight">
+        <p><strong>Email:</strong> pesofit.app@gmail.com</p>
+      </div>
+      <p>
+        You may also exercise your rights of access, rectification, erasure,
+        objection, and portability by sending an email to the address above.
+      </p>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 PesoFit. <span class="lang-es inline">Todos los derechos reservados.</span><span class="lang-en inline">All rights reserved.</span></p>
+    <p style="margin-top: 4px;">
+      <a href="https://github.com/rmoral/app_peso">GitHub</a> · <a href="index.html">PesoFit</a>
+    </p>
+  </div>
+
+  <script>
+    function switchLang(lang) {
+      document.body.classList.remove('show-es', 'show-en');
+      document.body.classList.add('show-' + lang);
+      document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      document.documentElement.lang = lang;
+    }
+
+    // Auto-detect language from browser
+    (function() {
+      var userLang = navigator.language || navigator.userLanguage || 'es';
+      if (userLang.startsWith('en')) {
+        switchLang('en');
+      }
+      // Also check URL param: ?lang=en or ?lang=es
+      var params = new URLSearchParams(window.location.search);
+      var paramLang = params.get('lang');
+      if (paramLang === 'en' || paramLang === 'es') {
+        switchLang(paramLang);
+      }
+    })();
+  </script>
+
+</body>
+</html>
